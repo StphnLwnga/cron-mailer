@@ -36,7 +36,7 @@ db.connect(err => {
 	if (err) throw err;
 	console.log(`Connected to database - ${process.env.DB_DATABASE}`);
 
-
+  /*
 	const sql_users = "INSERT INTO domaincart_user (fname, lname, email, password, phone, address, city, country) VALUES ?";
 	db.query(
 		sql_users, 
@@ -53,7 +53,7 @@ db.connect(err => {
 		}
 	);
 	// Adding dummy data -> DO ONCE ONLY
-	/* 
+	
 
 	const sql_orders = "INSERT INTO domaincart_orders (UserID, productid, NameServers, currency, status, OrderDate) VALUES ?";
 	db.query(
@@ -62,9 +62,14 @@ db.connect(err => {
 		(err, res) => {
 			if (err) throw err;
 			console.log(`${process.env.DB_DATABASE} database, domaincart_users table populated!`);
+			//Terminate connection
+      db.end(err => {
+	      if (err) throw err;
+	      console.log(`Connection to ${process.env.DB_DATABASE} terminated!`);
+      })
 		}
 	);
-	
+	*/
 
 	/*TODO: 
 		- Query orders table for Orderdate for order date about to expire i.e 10 days to expiry date
