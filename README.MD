@@ -1,0 +1,1 @@
+Cron job that sends email reminders to customers whose purchases are within 10 days of expiry
