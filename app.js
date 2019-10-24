@@ -4,19 +4,18 @@ const express = require('express');
 // File upload middleware 
 const fs = require('fs');
 
+const path = require('path');
+
 // Parse incoming requests from the client
 const bodyParser = require('body-parser');
 
 // Node driver for MySQL
 const mysql = require('mysql');
 
-// const path = require('path');
-
-// Parse datetimes
-const moment = require('moment');
-
 //Dummy data
-const dummy_data = require('./components/dummy_data.js');
+// const dummy_data = require('./components/dummy_data.js');
+
+const { queryPendingStatus } = require('./components/sql.js');
 
 const app = express();
 
@@ -36,16 +35,12 @@ const db = mysql.createConnection({
 	database: process.env.DB_DATABASE,
 });
 
+global.queryResults;
 // Connect to database
 db.connect(err => {
 	if (err) throw err;
 	console.log(`Connected to database - ${process.env.DB_DATABASE}`);
-
-	/*TODO: 
-		- Query orders table for Orderdate for order date about to expire i.e 10 days to expiry date
-		- Get corresponding users by id 
-		- elsaticemail to send email to customer and accounts@ipayafrica.com until order status changes from pending to active or expired
-	*/
+	queryPendingStatus();
 }); 	
 global.db = db;
 
@@ -53,8 +48,19 @@ global.db = db;
 
 // Middleware configuration
 app.set('port', port);
+
+// set express to look in this folder to render our view
+// app.set('views', __dirname + '/views'); 
+
+// configure template engine
+// app.set('view engine', 'ejs'); 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json()); // parse form data client
+
+// parse form data client
+app.use(bodyParser.json()); 
+
+// configure express to use public folder
+// app.use(express.static(path.join(__dirname, 'public'))); 
 // app.use(fileUpload()); // configure fileupload
 
 app.listen(port, () => {
