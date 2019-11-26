@@ -2,7 +2,7 @@ Cron job that sends email reminders to customers whose purchases are within 10 d
 
 # Node/Cron Job: Hosting and domain reminder.
 
-### Setup Systemd service
+### Setup ```systemd``` service
  - Open up a terminal and enter the following:
 ```
 	sudo gedit /lib/systemd/system/domain-reminder.service
@@ -28,4 +28,26 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+```
+
+ - Using ```systemctl``` to launch and control the app:
+```
+	sudo systemctl daemon-reload
+	
+	sudo systemctl start domain-reminder
+```
+
+ - To view the state that ```systemd``` thinks the app is in:
+```
+	sudo systemctl status domain-reminder
+```
+
+ - To stop the app:
+```
+	sudo systemctl stop domain-reminder
+```
+
+ - To restart the app:
+```
+	sudo systemctl restart domain-reminder
 ```
