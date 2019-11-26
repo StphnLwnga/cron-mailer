@@ -20,11 +20,13 @@ After=network.target
 [Service]
 Environment=NODE_PORT=5000
 Type=simple
-; Run app as the unprivileged ubuntu user for safety
-User=ubuntu
+; Run app as the unprivileged user for safety, edit accordingly
+User=martina
 ;Edit path to app accordingly
 ExecStart=/usr/bin/node /PATH/TO/cron-jobs-node/app.js
-Restart=on-failure
+Restart=always
+RestartSec=500ms
+StartLimitInterval=0
 
 [Install]
 WantedBy=multi-user.target
