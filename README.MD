@@ -38,6 +38,11 @@ StartLimitInterval=0
 WantedBy=multi-user.target
 ```
 
+ - Save the script and make it executable:
+```
+	sudo chmod +x  /lib/systemd/system/domain-reminder.service
+```
+
  - Using ```systemctl``` to launch and control the app:
 ```
 	sudo systemctl daemon-reload
