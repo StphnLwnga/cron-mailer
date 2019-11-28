@@ -5,6 +5,21 @@ Cron job that sends email reminders to customers whose purchases are within 10 d
 ### In a terminal 
 - ```npm install```
 
+### In the ```.env``` file in the root directory, add/edit the following parameters:
+```
+DB_CONLIMIT=
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE=
+PORT=5000
+EE_API_KEY=
+EE_URI=
+EE_VERSION=
+```
+EE_* -> Elastic Email credentials/parameters. 
+
 ### To test 
 - ```npm start```
 
