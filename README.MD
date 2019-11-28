@@ -24,12 +24,12 @@ EE_* -> Elastic Email credentials/parameters.
 - ```npm start```
 
 ### Setup ```systemd``` service
- - Open up a terminal and enter the following:
+ - In the terminal, enter the following:
 ```
 	sudo gedit /lib/systemd/system/domain-reminder.service
 ```
 
- - This will open the file in ubuntu's default text editor. Enter the follwing:
+ - Enter the follwing:
 ```
 [Unit]
 Description=node-cron.js - send reminders to renew hosting plan
