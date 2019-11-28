@@ -1,6 +1,6 @@
 Cron job that sends email reminders to customers whose purchases are within 10 days of expiry
 
-# Node/Cron Job: Hosting and domain reminder.
+# Node/Cron Job: Reminders sent when domain/hosting is about to expire.
 
 ### In a terminal 
 - ```npm install```
