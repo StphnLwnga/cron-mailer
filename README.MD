@@ -2,6 +2,10 @@ Cron job that sends email reminders to customers whose purchases are within 10 d
 
 # Node/Cron Job: Hosting and domain reminder.
 
+### In a terminal, ```npm install```
+
+### To test, ```npm start```
+
 ### Setup ```systemd``` service
  - Open up a terminal and enter the following:
 ```
